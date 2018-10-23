@@ -3,7 +3,7 @@
 Creating login page the is connected to store and reducers and action.
 
 ## Example
-[Live Demo](https://byahmadali.github.io/winfooz-redux-task/index.html)
+[Live Demo](https://byahmadali.github.io/winfooz-redux-task/)
 
 ## Instructions
 
