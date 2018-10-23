@@ -23,7 +23,8 @@ class App extends Component {
 
     setTimeout(() => {
       this.props.login(this.state)
-    }, 1000)
+    }, 1000);
+
   }
 
   handleChange(e) {
@@ -68,10 +69,10 @@ const mapPropsToState = state => ({
 
 const mapDispatchToProps = dispatch => ({
   login: (user) => {
-    dispatch(loginUser(user))
+    dispatch(loginUser(user));
   },
   wait: () => {
-    dispatch(userWait())
+    dispatch(userWait());
   }
 })
 
