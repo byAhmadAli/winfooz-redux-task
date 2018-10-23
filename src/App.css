@@ -1,4 +1,4 @@
-.login-page {
+.login-page, .welcome-page {
   width: 360px;
   padding: 8% 0 0;
   margin: auto;
@@ -43,4 +43,15 @@
 }
 .form button:hover,.form button:active,.form button:focus {
   background: #d38d00;
+}
+
+.welcome-page h1{
+  margin: 0;
+  font-size: 80px;
+  color: #fff;
+}
+.welcome-page h2{
+  margin: 0;
+  font-size: 40px;
+  color: #fff;
 }
