@@ -3,7 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 
 import { connect } from 'react-redux';
-import { loginUser, userWait } from  './actions/userAction';
+import { userLogin } from  './actions/userAction';
+import { request, requestSuccess, requestFailure } from './actions/requestAtion'
 
 class App extends Component {
   constructor(props) {
@@ -19,12 +20,7 @@ class App extends Component {
   }
 
   handleSubmit(){
-    this.props.wait();
-
-    setTimeout(() => {
-      this.props.login(this.state)
-    }, 1000);
-
+    this.props.login(this.state)
   }
 
   handleChange(e) {
@@ -40,7 +36,7 @@ class App extends Component {
 
     return (
       <div>
-        {user.username ? (
+        {user ? (
           <div className="welcome-page">
             <h2>Hello,</h2>
             <h1>{user.username}</h1>
@@ -69,10 +65,15 @@ const mapPropsToState = state => ({
 
 const mapDispatchToProps = dispatch => ({
   login: (user) => {
-    dispatch(loginUser(user));
-  },
-  wait: () => {
-    dispatch(userWait());
+    dispatch(request())
+    setTimeout(() => {
+      if(user.password && user.username){
+        dispatch(userLogin(user));
+        dispatch(requestSuccess())
+      }else{
+        dispatch(requestFailure())
+      }
+    }, 1000)
   }
 })
 

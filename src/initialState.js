@@ -1,6 +1,4 @@
 export const initialState = {
-    user:{
-        username: null
-    },
+    user: null,
     isLoading: false
 }
