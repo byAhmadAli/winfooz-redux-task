@@ -1,26 +1,13 @@
-export const LOGIN_USER = 'user:login';
-export const USER_WAIT = 'user:wait';
+const initialState = {
+    user: null
+}
 
-export function userReducer(state, action){
+export const USER_ATTEMPT = 'user:attempt';
+
+export const userReducer = (state = initialState, action) =>{
     switch (action.type) {
-        case LOGIN_USER:
-            if(action.payload.user.password){
-                return {
-                    isLoading: action.payload.isLoading,
-                    user: {
-                        username: action.payload.user.username
-                    }
-                };
-            }
-            return {
-                ...state,
-                isLoading: action.payload.isLoading
-            };
-        case USER_WAIT:
-            return {
-                ...state,
-                isLoading: action.payload
-            };
+        case USER_ATTEMPT:
+            return action.payload;
         default:
             return state;
     }
